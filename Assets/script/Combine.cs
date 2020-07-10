@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-public class Combine : MonoBehaviour
-{
 
-    public void combine()
-    {
+public class Combine : MonoBehaviour {
+
+    public GameObject engine;
+    private string name;
+    private string path, ass;
+
+    public void combine() {
 
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
@@ -28,11 +33,20 @@ public class Combine : MonoBehaviour
         transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         transform.gameObject.SetActive(true);
 
-        foreach (Transform child in transform)
-        {
+        foreach (Transform child in transform) {
             GameObject.Destroy(child.gameObject);
         }
 
-        transform.GetComponent<BoxCollider>().enabled = false;
+        name = GameObject.Find("InputField").GetComponent<InputField>().text;
+        path = "Assets/Cars/" + name + ".Prefab";
+        ass = "Assets/Cars/" + name + ".asset";
+
+        Mesh msh = engine.GetComponent<MeshFilter>().sharedMesh;
+        AssetDatabase.CreateAsset(msh, ass);
+        AssetDatabase.SaveAssets();
+        PrefabUtility.SaveAsPrefabAsset(engine, path);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
     }
 }
