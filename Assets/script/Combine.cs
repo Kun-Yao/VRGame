@@ -13,6 +13,11 @@ public class Combine : MonoBehaviour {
     public GameObject engine;
     private string name;
     private string path, ass;
+    GameManager gameManager;
+
+    void Awake() {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void combine() {
 
@@ -40,6 +45,12 @@ public class Combine : MonoBehaviour {
         name = GameObject.Find("InputField").GetComponent<InputField>().text;
         path = "Assets/Cars/" + name + ".Prefab";
         ass = "Assets/Cars/" + name + ".asset";
+
+        gameManager.carList.Add(name);
+        foreach (var car in gameManager.carList) {
+            Debug.Log (car);
+        }
+
 
         Mesh msh = engine.GetComponent<MeshFilter>().sharedMesh;
         AssetDatabase.CreateAsset(msh, ass);
