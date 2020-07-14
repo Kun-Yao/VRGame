@@ -19,7 +19,6 @@ public class ButtonEvent : MonoBehaviour
     public void transScene(int index)
     {
         SceneManager.LoadScene(index);
-        Debug.Log(SceneManager.GetActiveScene().name + carevent.ll[0]);
     }
 
     public void button1()
@@ -50,8 +49,6 @@ public class ButtonEvent : MonoBehaviour
         t.name = "third";
         car.AddComponent<Button>();
         car.AddComponent<test>().enabled = false;
-        carevent.AddCarToArray(car);
-        Debug.Log(carevent.ll[0]);
         //選好賽車再啟動所有component
     }
 

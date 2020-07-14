@@ -16,30 +16,16 @@ public static class carevent
     }
 
     //建立list
-    static List<GameObject> vehicle = new List<GameObject>();
-    
-    public static void addlist(GameObject name)
+    public static List<string> vehicle = new List<string> { "Chev666", "111", "222", "333", "444"};
+
+    public static void addlist(string name)
     {
         vehicle.Add(name);
     }
 
-    public static List<GameObject> GetList()
+    public static List<string> GetList()
     {
         return vehicle;
-    }
-
-    public static GameObject[] ll = new GameObject[10];
-    static int index = 0;
-    public static void AddCarToArray(GameObject gg)
-    {
-        Debug.Log(index);
-        ll[index] = gg;
-        Debug.Log(ll[0].name);
-        index++;
-    }
-    public static GameObject[] getll()
-    {
-        return ll;
     }
 
     //選賽車
