@@ -12,8 +12,6 @@ public class ButtonEvent : MonoBehaviour
     private void Start()
     {
         carcamera = GameObject.Find("CarCamera");
-        
-        
     }
     
     public void transScene(int index)
