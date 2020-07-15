@@ -36,7 +36,7 @@ public static class carevent
     }
     public  static GameObject getTarget()
     {
-        target.transform.GetChild(1).transform.GetComponent<Camera>().enabled = true;
+        //target.transform.GetChild(1).transform.GetComponent<Camera>().enabled = true;
         return target;
     }
     

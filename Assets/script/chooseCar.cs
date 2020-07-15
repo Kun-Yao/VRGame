@@ -18,6 +18,7 @@ public class chooseCar : MonoBehaviour
     private void click()
     {
         camera.transform.position = transform.GetChild(0).position;
-
+        carevent.setTarget(transform.GetChild(0).gameObject);
+        //Debug.Log(carevent.getTarget().name);
     }
 }

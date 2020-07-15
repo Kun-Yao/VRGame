@@ -45,6 +45,7 @@ public class ButtonEvent : MonoBehaviour
         GameObject t = Instantiate(third);
         t.transform.SetParent(car.transform);
         t.name = "third";
+        t.GetComponent<Camera>().enabled = false;
         car.AddComponent<Button>();
         car.AddComponent<test>().enabled = false;
         //選好賽車再啟動所有component
