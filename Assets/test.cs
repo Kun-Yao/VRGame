@@ -129,7 +129,7 @@ public class test : MonoBehaviour
             }
             else
             {
-                transform.GetComponent<Rigidbody>().mass = 200;
+                transform.GetComponent<Rigidbody>().mass = 500;
                 Move();
             }
                 

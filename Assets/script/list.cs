@@ -13,10 +13,13 @@ public class list : MonoBehaviour
     List<string> vs;
     GameObject camera;
     Vector3 delta;
+    Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
         delta = new Vector3(474.375f, 251.5f, 9);
+        canvas = Canvas.FindObjectOfType<Canvas>();
+        Debug.Log(" " + canvas.transform.right);
         Pos = new Vector3(-131, -69, 0);
         Rot = Quaternion.Euler(0, 45, 0);
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
@@ -29,7 +32,7 @@ public class list : MonoBehaviour
             tmp.name = (i).ToString();
             tmp.texture = null;
             tmp.color = new Color(255, 255, 255, 0);
-            g = (GameObject)Instantiate(Resources.Load(vs[i]), tmp.transform.position, Rot, tmp.transform);
+            g = (GameObject)Instantiate(Resources.Load(vs[i]), tmp.transform.localPosition, Rot);
             g.transform.localScale = new Vector3(10, 10, 10);
             Debug.Log(g.transform.lossyScale + " " + g.name);
             Pos += new Vector3(50, 0, 0);
