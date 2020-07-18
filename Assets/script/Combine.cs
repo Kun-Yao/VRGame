@@ -53,14 +53,7 @@ public class Combine : MonoBehaviour {
             AssetDatabase.Refresh();
             panel.SetActive(false);
         }
-
-<<<<<<< HEAD
-        name = GameObject.Find("InputField").GetComponent<InputField>().text;
-        path = "Assets/Resources/" + name + ".Prefab";
-        ass = "Assets/Resources/123456/" + name + ".asset";
-=======
     }
->>>>>>> 87c5afec4369fa9541792261eed530c09960b216
 
     //確認名稱是否重複
     private bool save() {
