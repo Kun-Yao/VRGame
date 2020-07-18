@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 2378328990660059635}
   - component: {fileID: 5515673911105387709}
   - component: {fileID: 3617059921229909869}
-  - component: {fileID: 597987360244320629}
-  - component: {fileID: 990628051}
+  - component: {fileID: 2378328990734707613}
   m_Layer: 0
   m_Name: Engine
   m_TagString: Untagged
@@ -59,10 +58,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0d663f80f70704e98ada1070346e4494, type: 2}
+  - {fileID: 2100000, guid: 5ab73bf94d7144de4ad4a88e4e217a7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03297d3d3fb064942a19492d37ac2bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextureAtlasSizeInBlocks: 1
+  TextureAtlasSizeInBlocks: 4
   blockType:
     frontFaceTexture: 0
     topFaceTexture: 0
@@ -140,7 +141,7 @@ MonoBehaviour:
     bottomFaceTexture: 0
     leftFaceTexture: 0
     rightFaceTexture: 0
---- !u!114 &597987360244320629
+--- !u!114 &2378328990734707613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,18 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2378328990660059632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff12d6188608a34ba223f98e37d190c, type: 3}
+  m_Script: {fileID: 11500000, guid: 35ee82f930015ff438cd1499b53a99bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &990628051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378328990660059632}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e5b8db3a9263b848b8543becce139be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  engine: {fileID: 2378328990660059632}

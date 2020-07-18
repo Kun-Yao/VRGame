@@ -287,12 +287,12 @@ PrefabInstance:
     - target: {fileID: 3859988790157262347, guid: 3f033137bb008964ca6ca5f1945ea3e2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -437
+      value: -368
       objectReference: {fileID: 0}
     - target: {fileID: 3859988790157262347, guid: 3f033137bb008964ca6ca5f1945ea3e2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -214
+      value: -162
       objectReference: {fileID: 0}
     - target: {fileID: 3859988790157262347, guid: 3f033137bb008964ca6ca5f1945ea3e2,
         type: 3}
@@ -1446,7 +1446,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Camcel
+  m_Text: Cancel
 --- !u!222 &921354591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2756,7 +2756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 435, y: -215}
+  m_AnchoredPosition: {x: 349, y: -165}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534404350
@@ -3628,32 +3628,32 @@ PrefabInstance:
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.frontFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.topFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.backFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.bottomFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.leftFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617059921229909869, guid: cb4fee8bb5d3a4e7f8eca07660a2c798,
         type: 3}
       propertyPath: blockType.rightFaceTexture
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 990628051, guid: cb4fee8bb5d3a4e7f8eca07660a2c798, type: 3}

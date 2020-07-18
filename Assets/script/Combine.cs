@@ -43,8 +43,8 @@ public class Combine : MonoBehaviour {
         }
 
         name = GameObject.Find("InputField").GetComponent<InputField>().text;
-        path = "Assets/Cars/" + name + ".Prefab";
-        ass = "Assets/Cars/" + name + ".asset";
+        path = "Assets/Resources/" + name + ".Prefab";
+        ass = "Assets/Resources/" + name + ".asset";
 
         gameManager.carList.Add(name);
         foreach (var car in gameManager.carList) {

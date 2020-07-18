@@ -13,16 +13,39 @@ public class SetTexture : MonoBehaviour {
 
     Vector2[] uvs = new Vector2[24];
 
-    void Start() {
+    void Awake() {
 
-        Front(blockType.GetTextureID(0));
-        Top(blockType.GetTextureID(1));
-        Back(blockType.GetTextureID(2));
-        Bottom(blockType.GetTextureID(3));
-        Left(blockType.GetTextureID(4));
-        Right(blockType.GetTextureID(5));
-        
-        this.GetComponent<MeshFilter>().mesh.uv = uvs;
+        if (this.tag == "cylinder") {
+
+            Mesh mesh = GetComponent<MeshFilter>().mesh;
+            Vector3[] vertices = mesh.vertices;
+            Vector2[] uvs = new Vector2[vertices.Length];
+
+            float y =  16/TextureAtlasSizeInBlocks;
+            float x = 16/(y * TextureAtlasSizeInBlocks);
+            x *= NormalizedBlockTextureSize;
+            y *= NormalizedBlockTextureSize;
+            y = 1f - y - NormalizedBlockTextureSize;
+
+            for (var i = 0; i < vertices.Length/4; i++) {
+
+                uvs[i] = new Vector2(x, y);
+                uvs[i+1] = new Vector2(x+NormalizedBlockTextureSize, y);
+                uvs[i+2] = new Vector2(x, y+NormalizedBlockTextureSize);
+                uvs[i+3] = new Vector2(x+NormalizedBlockTextureSize, y+NormalizedBlockTextureSize);
+            }
+            this.GetComponent<MeshFilter>().mesh.uv = uvs;
+        }
+        else {
+            Front(blockType.GetTextureID(0));
+            Top(blockType.GetTextureID(1));
+            Back(blockType.GetTextureID(2));
+            Bottom(blockType.GetTextureID(3));
+            Left(blockType.GetTextureID(4));
+            Right(blockType.GetTextureID(5));
+            
+            this.GetComponent<MeshFilter>().mesh.uv = uvs;
+        }
     }
 
     void Front(int textureID) {
@@ -102,6 +125,10 @@ public class SetTexture : MonoBehaviour {
         uvs[21] = new Vector2(x, y+NormalizedBlockTextureSize);
         uvs[22] = new Vector2(x+NormalizedBlockTextureSize, y+NormalizedBlockTextureSize);
         uvs[23] = new Vector2(x+NormalizedBlockTextureSize, y);
+    }
+
+    public Vector2[] addTexture() {
+        return uvs;
     }
 }
 
