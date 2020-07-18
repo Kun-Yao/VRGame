@@ -27,7 +27,9 @@ public class list : MonoBehaviour
             Debug.Log(vs[i]);
         }
         camera = GameObject.Find("CarCamera");
+
         for (int i = 0; i < vs.Length - 1; i++)
+
         {
             RawImage tmp = Instantiate(ri, transform);
             tmp.name = (i).ToString();

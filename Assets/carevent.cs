@@ -16,7 +16,7 @@ public static class carevent
     }
 
     //建立list
-    public static List<string> vehicle = new List<string> { "Chev666", "111", "222", "333", "444"};
+    public static List<string> vehicle = new List<string>();
 
     public static void addlist(string name)
     {
