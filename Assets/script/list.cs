@@ -27,13 +27,13 @@ public class list : MonoBehaviour
             Debug.Log(vs[i]);
         }
         camera = GameObject.Find("CarCamera");
-        for (int i = 0; i < vs.Length; i++)
+        for (int i = 0; i < vs.Length - 1; i++)
         {
             RawImage tmp = Instantiate(ri, transform);
             tmp.name = (i).ToString();
             tmp.texture = null;
             tmp.color = new Color(255, 255, 255, 0);
-            //g =GameObject.Find(vs[i]);
+            g =GameObject.Find(vs[i]);
             //g = GameObject.Find("green");
             if(g == null)
             {
