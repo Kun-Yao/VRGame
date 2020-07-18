@@ -22,20 +22,20 @@ public class list : MonoBehaviour
         ta = Resources.Load<TextAsset>("carList/list");
         s = ta.text;
         string[] vs = s.Split('\n');
-        for(int i = 0; i<2; i++)
-        {
-            Debug.Log(vs[i]);
-        }
+        //for(int i = 0; i<2; i++)
+        //{
+        //    Debug.Log(vs[i]);
+        //}
         camera = GameObject.Find("CarCamera");
 
         for (int i = 0; i < vs.Length - 1; i++)
-
         {
             RawImage tmp = Instantiate(ri, transform);
             tmp.name = (i).ToString();
             tmp.texture = null;
             tmp.color = new Color(255, 255, 255, 0);
             g =GameObject.Find(vs[i]);
+            Debug.Log(g.name);
             //g = GameObject.Find("green");
             if(g == null)
             {
