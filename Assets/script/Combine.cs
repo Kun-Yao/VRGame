@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System.IO;
 
 
 [RequireComponent(typeof(MeshFilter))]
@@ -11,13 +12,13 @@ using UnityEngine.UI;
 public class Combine : MonoBehaviour {
 
     public GameObject engine;
+    public GameObject panel;
+    public GameObject dup;
     private string name;
     private string path, ass;
-    GameManager gameManager;
+    private List<string> carList = new List<string>();
+    private string test;
 
-    void Awake() {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     public void combine() {
 
@@ -41,23 +42,60 @@ public class Combine : MonoBehaviour {
         foreach (Transform child in transform) {
             GameObject.Destroy(child.gameObject);
         }
+        
+        if (save()) {
 
+            Mesh msh = engine.GetComponent<MeshFilter>().sharedMesh;
+            AssetDatabase.CreateAsset(msh, ass);
+            AssetDatabase.SaveAssets();
+            PrefabUtility.SaveAsPrefabAsset(engine, path);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            panel.SetActive(false);
+        }
+
+<<<<<<< HEAD
         name = GameObject.Find("InputField").GetComponent<InputField>().text;
         path = "Assets/Resources/" + name + ".Prefab";
         ass = "Assets/Resources/123456/" + name + ".asset";
+=======
+    }
+>>>>>>> 87c5afec4369fa9541792261eed530c09960b216
 
-        gameManager.carList.Add(name);
-        foreach (var car in gameManager.carList) {
-            Debug.Log (car);
+    //確認名稱是否重複
+    private bool save() {
+
+        StreamReader sr = new StreamReader("Assets/Resources/carList/list.txt");
+        test = sr.ReadLine();
+        while(test != null) {
+            Debug.Log(test);
+            carList.Add(test);
+            test = sr.ReadLine();
+        }
+        sr.Close();
+
+        name = GameObject.Find("InputField").GetComponent<InputField>().text;
+
+        bool isActive = true;
+        foreach (string car in carList) {
+            if (car.Equals(name)) {
+                GameObject.Find("InputField").GetComponent<InputField>().text = "";
+                isActive = false;
+                if (dup != null)
+                    dup.SetActive(true);
+                break;
+            }
         }
 
-
-        Mesh msh = engine.GetComponent<MeshFilter>().sharedMesh;
-        AssetDatabase.CreateAsset(msh, ass);
-        AssetDatabase.SaveAssets();
-        PrefabUtility.SaveAsPrefabAsset(engine, path);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-
+        if (isActive) {
+            
+            path = "Assets/Resources/" + name + ".Prefab";
+            ass = "Assets/Resources/Model/" + name + ".asset";
+            StreamWriter sw = new StreamWriter("Assets/Resources/carList/list.txt", true);
+            sw.WriteLine(name);
+            sw.Close();
+            return true;
+        }
+        return false;
     }
 }
