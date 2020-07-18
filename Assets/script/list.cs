@@ -33,7 +33,7 @@ public class list : MonoBehaviour
             tmp.name = (i).ToString();
             tmp.texture = null;
             tmp.color = new Color(255, 255, 255, 0);
-            //g =GameObject.Find(vs[i]);
+            g =GameObject.Find(vs[i]);
             //g = GameObject.Find("green");
             if(g == null)
             {
