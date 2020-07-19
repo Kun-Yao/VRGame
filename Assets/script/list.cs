@@ -26,6 +26,17 @@ public class list : MonoBehaviour
         //{
         //    Debug.Log(vs[i]);
         //}
+        for(int i = 0; i<2; i++)
+        {
+            if (vs[i].Equals("green") == true || vs[i].Equals("cookie") == true)
+            {
+                Debug.Log("same");
+            }
+            else
+            {
+                Debug.Log("diff");
+            }
+        }
         camera = GameObject.Find("CarCamera");
 
         for (int i = 0; i < vs.Length - 1; i++)
