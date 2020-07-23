@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class list : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class list : MonoBehaviour
     Vector3 Pos;
     Quaternion Rot;
     TextAsset ta;
-    string s;
+    string[] vs;
     GameObject camera;
     // Start is called before the first frame update
     void Start()
@@ -20,26 +21,19 @@ public class list : MonoBehaviour
         Rot = Quaternion.Euler(0, 0, 0);
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
         ta = Resources.Load<TextAsset>("carList/list");
-        s = ta.text;
-        string[] vs = s.Split('\n');
-        //for(int i = 0; i<2; i++)
+        vs = ta.text.Split('\n');
+        for(int i=0; i<vs.Length-1; i++)
+        {
+            vs[i] = vs[i].Substring(0, vs[i].Length - 1);
+        }
+        //for (int i = 0; i < 2; i++)
         //{
         //    Debug.Log(vs[i]);
         //}
-        for(int i = 0; i<2; i++)
-        {
-            if (vs[i].Equals("green") == true || vs[i].Equals("cookie") == true)
-            {
-                Debug.Log("same");
-            }
-            else
-            {
-                Debug.Log("diff");
-            }
-        }
+
         camera = GameObject.Find("CarCamera");
 
-        for (int i = 0; i < vs.Length - 1; i++)
+        for (int i = 0; i < vs.Length-1; i++)
         {
             RawImage tmp = Instantiate(ri, transform);
             tmp.name = (i).ToString();
