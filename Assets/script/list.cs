@@ -9,7 +9,7 @@ public class list : MonoBehaviour
 {
     RawImage ri;
     GameObject g;
-    Vector3 Pos;
+    Vector3 PosOfCar;
     Quaternion Rot;
     TextAsset ta;
     string[] vs;
@@ -17,7 +17,7 @@ public class list : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Pos = new Vector3(-131, -69, 0);
+        PosOfCar = new Vector3(-250, -135, 190);
         Rot = Quaternion.Euler(0, 0, 0);
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
         ta = Resources.Load<TextAsset>("carList/list");
@@ -26,10 +26,6 @@ public class list : MonoBehaviour
         {
             vs[i] = vs[i].Substring(0, vs[i].Length - 1);
         }
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    Debug.Log(vs[i]);
-        //}
 
         camera = GameObject.Find("CarCamera");
 
@@ -37,12 +33,17 @@ public class list : MonoBehaviour
         {
             RawImage tmp = Instantiate(ri, transform);
             tmp.name = (i).ToString();
-            tmp.texture = null;
+            //tmp.texture = null;
             tmp.color = new Color(255, 255, 255, 0);
-            g =GameObject.Find(vs[i]);
-            Debug.Log(g.name);
-            //g = GameObject.Find("green");
-            if(g == null)
+
+            g = (GameObject)Instantiate(Resources.Load(vs[i]), tmp.transform.position, Rot, tmp.transform);
+            g.transform.localPosition = PosOfCar;
+            g.transform.localScale = new Vector3(10, 10, 10);
+            Debug.Log(g.transform.lossyScale + " " + g.name);
+            
+            tmp.gameObject.AddComponent<Button>();
+            tmp.gameObject.AddComponent<chooseCar>();
+            if (g == null)
             {
                 Debug.Log("null");
             }
@@ -50,12 +51,7 @@ public class list : MonoBehaviour
             {
                 Debug.Log(g.name);
             }
-            //g = (GameObject)Instantiate(Resources.Load(vs[i]), tmp.transform.position, Rot, tmp.transform);
-            //g.transform.localScale = new Vector3(10, 10, 10);
-            //Debug.Log(g.transform.lossyScale + " " + g.name);
-            //Pos += new Vector3(50, 0, 0);
-            //tmp.gameObject.AddComponent<Button>();
-            //tmp.gameObject.AddComponent<chooseCar>();
+
         }
 
 
