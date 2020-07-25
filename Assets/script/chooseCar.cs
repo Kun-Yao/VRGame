@@ -17,8 +17,12 @@ public class chooseCar : MonoBehaviour
 
     private void click()
     {
-        camera.transform.position = transform.GetChild(0).position;
+        GameObject game = transform.GetChild(0).gameObject;
+        camera.transform.position = new Vector3(game.transform.position.x, 150, 225);
+        game.transform.rotation = Quaternion.Euler(0, 2, 0);
+        //物件旋轉(未完成)
         carevent.setTarget(transform.GetChild(0).gameObject);
         //Debug.Log(carevent.getTarget().name);
     }
+
 }

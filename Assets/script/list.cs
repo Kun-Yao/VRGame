@@ -18,7 +18,7 @@ public class list : MonoBehaviour
     void Start()
     {
         PosOfCar = new Vector3(-250, -135, 190);
-        Rot = Quaternion.Euler(0, 0, 0);
+        Rot = Quaternion.Euler(0, 1, 0);
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
         ta = Resources.Load<TextAsset>("carList/list");
         vs = ta.text.Split('\n');
