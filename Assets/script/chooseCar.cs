@@ -7,6 +7,12 @@ public class chooseCar : MonoBehaviour
 {
     Button btn;
     GameObject camera;
+    GameManager gameManager;
+
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,13 @@ public class chooseCar : MonoBehaviour
         //物件旋轉(未完成)
         carevent.setTarget(transform.GetChild(0).gameObject);
         //Debug.Log(carevent.getTarget().name);
+
+        //儲存輸入車子名
+        int pos = game.name.IndexOf("(");
+        game.name = game.name.Substring(0, pos);
+        gameManager.carName = game.name;
+        Debug.Log("aaaaa");
+        Debug.Log(gameManager.carName);
     }
 
 }

@@ -22,10 +22,10 @@ public class list : MonoBehaviour
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
         ta = Resources.Load<TextAsset>("carList/list");
         vs = ta.text.Split('\n');
-        for(int i=0; i<vs.Length-1; i++)
-        {
-            vs[i] = vs[i].Substring(0, vs[i].Length - 1);
-        }
+        // for(int i=0; i<vs.Length-1; i++)
+        // {
+        //     vs[i] = vs[i].Substring(0, vs[i].Length - 1);
+        // }
 
         camera = GameObject.Find("CarCamera");
 

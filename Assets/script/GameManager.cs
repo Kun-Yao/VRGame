@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
    
-    static GameManager carName; 
-    public List<string> carList;
+    static GameManager car; 
+    public string carName;
     
     void Awake () {
 
-        if (carName == null) {
-            carName = this;
+        if (car == null) {
+            car = this;
             DontDestroyOnLoad(this);
         }
-        else if (this != carName) {
+        else if (this != car) {
             Destroy(gameObject);
         } 
     }     
