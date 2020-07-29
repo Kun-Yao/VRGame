@@ -22,10 +22,12 @@ public class list : MonoBehaviour
         ri = (RawImage)FindObjectOfType(typeof(RawImage));
         ta = Resources.Load<TextAsset>("carList/list");
         vs = ta.text.Split('\n');
-        // for(int i=0; i<vs.Length-1; i++)
-        // {
-        //     vs[i] = vs[i].Substring(0, vs[i].Length - 1);
-        // }
+
+        //MAC要把這個迴圈註解
+        for (int i = 0; i < vs.Length - 1; i++)
+        {
+            vs[i] = vs[i].Substring(0, vs[i].Length - 1);
+        }
 
         camera = GameObject.Find("CarCamera");
 
@@ -40,7 +42,7 @@ public class list : MonoBehaviour
             g.transform.localPosition = PosOfCar;
             g.transform.localScale = new Vector3(10, 10, 10);
             Debug.Log(g.transform.lossyScale + " " + g.name);
-            
+
             tmp.gameObject.AddComponent<Button>();
             tmp.gameObject.AddComponent<chooseCar>();
             if (g == null)
