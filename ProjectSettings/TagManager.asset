@@ -10,6 +10,7 @@ TagManager:
   - flag
   - ground
   - car
+  - cylinder
   layers:
   - Default
   - TransparentFX
