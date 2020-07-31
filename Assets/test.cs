@@ -26,10 +26,10 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetComponent<Rigidbody>().velocity.magnitude >= 0 || transform.GetComponent<Rigidbody>().velocity.magnitude <= maxspeed)
-        {
-            dashBoard.GetComponent<Text>().text = (transform.GetComponent<Rigidbody>().velocity.magnitude).ToString("0");
-        }
+        //if (transform.GetComponent<Rigidbody>().velocity.magnitude >= 0 || transform.GetComponent<Rigidbody>().velocity.magnitude <= maxspeed)
+        //{
+        //    dashBoard.GetComponent<Text>().text = (transform.GetComponent<Rigidbody>().velocity.magnitude).ToString("0");
+        //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {
