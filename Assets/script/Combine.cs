@@ -108,11 +108,11 @@ public class Combine : MonoBehaviour {
         }
         BoxCollider bc = engine.GetComponent<BoxCollider>();
         Mesh mesh = GetComponent<MeshFilter>().mesh;
-        bc.size = mesh.bounds.size;
-        bc.center = (bc.size / 2) - bc.center;
+        bc.enabled = false;
         
-        engine.AddComponent<Rigidbody>().useGravity = false;
-        //engine.AddComponent<BoxCollider>().enabled = false;
+        Rigidbody rb = engine.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+        engine.AddComponent<BoxCollider>();
         GameObject t = Instantiate(camera, engine.transform);
         t.name = "third";
         t.GetComponent<Camera>().enabled = false;
