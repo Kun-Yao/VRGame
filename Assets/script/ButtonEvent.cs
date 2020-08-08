@@ -33,23 +33,23 @@ public class ButtonEvent : MonoBehaviour
         carcamera.transform.position = new Vector3(car.transform.position.x, car.transform.position.y + 2, car.transform.position.z - 8);
     }
 
-    public void SaveCar(GameObject third)
-    {
-        car = GameObject.Find("Engine");
-        if(car == null)
-        {
-            Debug.Log("null");
-        }
-        car.AddComponent<Rigidbody>().useGravity = false;
-        car.AddComponent<BoxCollider>();
-        GameObject t = Instantiate(third);
-        t.transform.SetParent(car.transform);
-        t.name = "third";
-        t.GetComponent<Camera>().enabled = false;
-        car.AddComponent<Button>();
-        car.AddComponent<test>().enabled = false;
-        //選好賽車再啟動所有component
-    }
+    //public void SaveCar(GameObject third)
+    //{
+    //    car = GameObject.Find("Engine");
+    //    if(car == null)
+    //    {
+    //        Debug.Log("null");
+    //    }
+    //    car.AddComponent<Rigidbody>().useGravity = false;
+    //    car.AddComponent<BoxCollider>();
+    //    GameObject t = Instantiate(third);
+    //    t.transform.SetParent(car.transform);
+    //    t.name = "third";
+    //    t.GetComponent<Camera>().enabled = false;
+    //    car.AddComponent<Button>();
+    //    car.AddComponent<test>().enabled = false;
+    //    //選好賽車再啟動所有component
+    //}
 
 
 }
