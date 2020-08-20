@@ -104,15 +104,17 @@ public class Combine : MonoBehaviour {
         
         if (engine == null)
         {
-            Debug.Log("null");
+            Debug.Log("null engine");
         }
+        Debug.Log("scale = " + engine.transform.lossyScale);
         BoxCollider bc = engine.GetComponent<BoxCollider>();
+        //Destroy(bc);
         Mesh mesh = GetComponent<MeshFilter>().mesh;
-        bc.enabled = false;
+        
         
         Rigidbody rb = engine.AddComponent<Rigidbody>();
         rb.useGravity = false;
-        engine.AddComponent<BoxCollider>();
+        //engine.AddComponent<BoxCollider>();
         GameObject t = Instantiate(camera, engine.transform);
         t.name = "third";
         t.GetComponent<Camera>().enabled = false;

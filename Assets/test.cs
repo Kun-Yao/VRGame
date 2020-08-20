@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class test : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class test : MonoBehaviour
     float maxspeed = 300;
     Vector3 checkPoint;
     float maxForce = 0;
+
+    public GameObject left;
+    public GameObject right;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +48,7 @@ public class test : MonoBehaviour
     {
        transform.GetComponent<Rigidbody>().AddForce(transform.forward * maxForce);
         //移動
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (right.GetComponent<Control>().Acceler())
         {
             direction = 1;
             if (transform.GetComponent<Rigidbody>().velocity.magnitude < maxspeed)

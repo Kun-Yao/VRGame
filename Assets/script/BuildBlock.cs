@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -11,6 +11,9 @@ public class BuildBlock : MonoBehaviour {
     public GameObject newBlock;
     public int slotIndex = 1;
     public GameObject[] blocks;
+
+    public GameObject left;
+    public GameObject right;
 
     void Start() {
         newBlock = blocks[1];
@@ -34,16 +37,16 @@ public class BuildBlock : MonoBehaviour {
         GameObject block;
         Vector3 oldPos;
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) || right.GetComponent<Control>().GetGrab()) {
             
             if (EventSystem.current.IsPointerOverGameObject())
                 Debug.Log("Clicked on the UI");
             else {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, 1000.0f)) {
-
-                    oldPos = hit.collider.gameObject.transform.position;
-                    blockPos = hit.point + hit.normal/2.0f;
+                //ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (right.GetComponent<Control>().bHit) {
+                    
+                    oldPos = right.GetComponent<Control>().hit.collider.gameObject.transform.position;
+                    blockPos = right.GetComponent<Control>().hit.point + right.GetComponent<Control>().hit.normal/2.0f;
 
                     blockPos.x = (float) Math.Round(blockPos.x, MidpointRounding.AwayFromZero);
                     blockPos.y = (float) Math.Round(blockPos.y, MidpointRounding.AwayFromZero);
@@ -80,15 +83,15 @@ public class BuildBlock : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetMouseButtonDown(1) || left.GetComponent<Control>().GetGrab()) {
 
             if (EventSystem.current.IsPointerOverGameObject())
                 Debug.Log("Clicked on the UI");
             else {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, 1000.0f)) {
+                //ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (left.GetComponent<Control>().bHit) {
 
-                    block = hit.collider.gameObject;
+                    block = left.GetComponent<Control>().hit.collider.gameObject;
                     if (block != blocks[0])
                         Destroy(block);
                 }

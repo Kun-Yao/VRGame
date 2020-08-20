@@ -8,3 +8,7 @@ fuck
 aaa
 vbzxb
 ddd
+bug
+worm
+triple
+collider
