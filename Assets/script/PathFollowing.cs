@@ -3,7 +3,7 @@ using System.Collections;
  
 public class PathFollowing : MonoBehaviour {
      
-    public Path path;//The path
+    public myPath path;//The path
  
     public float speed = 20.0f;//following speed
     public float mass = 5.0f;//this is for object mass for simulating the real car

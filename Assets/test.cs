@@ -15,8 +15,8 @@ public class test : MonoBehaviour
     Vector3 checkPoint;
     float maxForce = 0;
 
-    public GameObject left;
-    public GameObject right;
+    //public GameObject left;
+    //public GameObject right;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,7 @@ public class test : MonoBehaviour
     {
        transform.GetComponent<Rigidbody>().AddForce(transform.forward * maxForce);
         //移動
-        if (right.GetComponent<Control>().Acceler())
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             direction = 1;
             if (transform.GetComponent<Rigidbody>().velocity.magnitude < maxspeed)
@@ -122,9 +122,14 @@ public class test : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("break");
+            carevent.ResetCar(this.gameObject, checkPoint);
+            Debug.Log(gameObject.name);
+        }
         if (collision.gameObject.CompareTag("ground"))
         {
-
             if (Mathf.Abs(transform.rotation.x) > 45 || Mathf.Abs(transform.rotation.z) > 45 || Input.GetKey(KeyCode.R))
             {
                 Debug.Log("break");
@@ -142,9 +147,15 @@ public class test : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("break");
+            carevent.ResetCar(this.gameObject, checkPoint);
+            Debug.Log(gameObject.name);
+        }
         if (collision.gameObject.CompareTag("ground"))
         {
-            Debug.Log("123");
+            Debug.Log("exit ground");
             direction = 0;
             transform.GetComponent<Rigidbody>().velocity *= 0.93f;
             transform.GetComponent<Rigidbody>().mass = Mathf.Infinity;

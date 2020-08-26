@@ -8,6 +8,8 @@ public class Control : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Action_Boolean grabAction;
     public SteamVR_Action_Boolean side;
+    public SteamVR_Action_Boolean menu;
+    public SteamVR_Action_Pose pose;
 
     public Ray ray;
     public RaycastHit hit;
@@ -30,4 +32,11 @@ public class Control : MonoBehaviour
     //{
     //    return side.state;
     //}
+
+    public bool getmenu()
+    {
+        return menu.stateUp;
+    }
+
+    
 }

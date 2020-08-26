@@ -107,19 +107,24 @@ public class Combine : MonoBehaviour {
             Debug.Log("null engine");
         }
         Debug.Log("scale = " + engine.transform.lossyScale);
-        BoxCollider bc = engine.GetComponent<BoxCollider>();
+        BoxCollider bc = this.GetComponent<BoxCollider>();
+        
+        //Debug.Log("this " + bc.transform.parent.name);
+        bc.enabled = false;
+        DestroyImmediate(bc);
         //Destroy(bc);
         Mesh mesh = GetComponent<MeshFilter>().mesh;
         
         
         Rigidbody rb = engine.AddComponent<Rigidbody>();
         rb.useGravity = false;
-        //engine.AddComponent<BoxCollider>();
+        engine.AddComponent<BoxCollider>().enabled = false;
         GameObject t = Instantiate(camera, engine.transform);
         t.name = "third";
         t.GetComponent<Camera>().enabled = false;
         t.SetActive(false);
         engine.AddComponent<test>().enabled = false;
         //選好賽車再啟動所有component
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
 }
